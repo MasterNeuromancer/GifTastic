@@ -12,13 +12,29 @@
 
 <body>
     <div id="buttons"> </div>
-    <div id="gifWindow"> </div>
-    <div id="search"> </div>
+    <div class="row">
 
+        <div class="float-right">
+            <div id="search">
+                <form>
+                    <div class="form-group">
+                        <label for="enterMartialArt">Add a Martial Art</label>
+                        <input type="email" class="form-control" id="enterMartialArt">
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="float-left">
+            <div id="gifWindow"> </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    
-    <script src="assets/giph.js"></script>   
+
+    <script src="assets/giph.js"></script>
 
 </body>
 

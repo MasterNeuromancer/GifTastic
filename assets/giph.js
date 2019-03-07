@@ -16,14 +16,17 @@ function pullGifs(martialArts) {
             var img = $("<img>");
             img.attr("src", response.data[i].images.original_still.url);
             img.attr("data-state", "still");
-            img.attr("data-state", response.data[i].images.original.url)
+            img.attr("class", "gifs")
+
             $("#gifWindow").append(p, img);
         }
     });
 }
+var martialArts = ["Judo", "Karate", "Kung-Fu", "Fencing", "Capoeira", "Boxing", "Muay Thai", "Kendo", "MMA", "Aikido"];
+
 
 function createButtons() {
-    var martialArts = ["Judo", "Karate", "Kung-Fu", "Fencing", "Capoeira", "Boxing", "Muay Thai", "Kendo", "MMA", "Aikido"];
+    
     // loop through an array of strings
     // for each element in the array 
     for (var i = 0; i < martialArts.length; i++) {
@@ -33,7 +36,7 @@ function createButtons() {
         btn.text(martialArts[i]);
         // with a data-attribute of data-title
         btn.attr("data-title", martialArts[i]);
-        
+
         // add the class of btn btn-success
         btn.addClass("btn btn-success martialArt-btn");
 
@@ -46,6 +49,15 @@ function createButtons() {
 }
 createButtons();
 
+
+/// create search button
+$(document).on("click", ".btn btn-primary", function (event) {
+    console.log("added btn");
+});
+
+// unable to get this button listener to work!!!
+// once button listener works I would have taken the value of the input fild and created .push to the array!!! This should create a new button for the gifs.
+
 $(document).on("click", ".martialArt-btn", function (event) {
     console.log("clicked");
     // clear gifs from the previous page 
@@ -57,12 +69,22 @@ $(document).on("click", ".martialArt-btn", function (event) {
 
     pullGifs(martialArts);
 
-    $(".gif").attr("data-state", "still")
+
 });
+/// create listener for gif click 
+$(document).on("click", ".gif", function () {
 
+    console.log("hello");
+    // upon click change data state and url to animate gif
 
-$(".img").on("click", function () {
-    // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-    console.log("src");
-    
+    if (state === "still") {
+        $(this).attr("src", response.data[i].images.original.url);
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", response.data[i].images.original_still.url);
+        $(this).attr("data-state", "still");
+        
+/// unable to get gif click listener to work!!!
+
+    };
 });
